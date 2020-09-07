@@ -12,10 +12,12 @@
 
 .todos__input {
   font-family: 'Montserrat', sans-serif;
-  border: none;
   outline: none;
   width: 100%;
   padding: 1em;
+  border: 1px solid #d7d7d7;
+  margin: 10px 0;
+  border-radius: 5px;
   font-size: 1em;
 }
 
