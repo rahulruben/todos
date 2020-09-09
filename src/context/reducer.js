@@ -24,6 +24,14 @@ export const reducer = (state, action) => {
                     todo.isCompleted = action.payload.isCompleted;
                 return todo;
             })
+        case actionTypes.UPDATE_TODO:
+            return state.map(todo => {
+                if (todo._id === action.payload._id) {
+                    todo.title = action.payload.title;
+                    todo.priority = action.payload.priority;
+                }
+                return todo;
+            })
         case actionTypes.DELETE_TODO:
             return state.filter(todo => !(todo._id === action.payload._id))
         default:

@@ -6,15 +6,24 @@ import DeleteIcon from '@material-ui/icons/Delete';
 import EditIcon from '@material-ui/icons/Edit';
 import { IconButton } from '@material-ui/core';
 
-function Todo({ _id, priority, title, isCompleted, onEditClicked }) {
+function Todo({ todo, onEditClicked }) {
     const checkBox = useRef(),
         [todos, dispatch] = useStateValue();
 
+    // useEffect(() => {
+    //     const removeAnimation = _ => {
+    //         todo.current.classList.remove('animate');
+    //         // todo.current.removeListener("animationend", removeAnimation);
+    //     }
+    //     todo.current.addEventListener("animationend", removeAnimation);
+    // }, [])
+
+
     return (
-        <div className={`todo todo--${isCompleted ? 'completed' : priority} animate`}>
+        <div className={`todo todo--${todo.isCompleted ? 'completed' : todo.priority} animate`}>
             <div className="todo__content">
-                <input ref={checkBox} onClick={e => dispatch(updateCompleted(_id, e.target.checked))} type="checkbox" name={'cb'} id={_id} />
-                <label htmlFor={_id}>
+                <input ref={checkBox} onClick={e => dispatch(updateCompleted(todo._id, e.target.checked))} type="checkbox" name={'cb'} id={todo._id} />
+                <label htmlFor={todo._id}>
                     <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 84 84">
                         <g>
                             <g>
@@ -24,12 +33,12 @@ function Todo({ _id, priority, title, isCompleted, onEditClicked }) {
                             <polyline className="check cls-2" points="17.5 45.5 28.5 60.5 65.5 29.5" />
                         </g>
                     </svg>
-                    <span className="todo__title">{title}</span>
+                    <span className="todo__title">{todo.title}</span>
                 </label>
-                <IconButton onClick={_ => onEditClicked(_id)}>
+                <IconButton onClick={_ => onEditClicked(todo)}>
                     <EditIcon />
                 </IconButton>
-                <IconButton onClick={_ => dispatch(deleteTodo(_id))}>
+                <IconButton onClick={_ => dispatch(deleteTodo(todo._id))}>
                     <DeleteIcon />
                 </IconButton>
             </div>

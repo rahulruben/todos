@@ -11,6 +11,18 @@ export const addTodo = (priority = PRIORITY.HIGH, title) => {
     }
 }
 
+export const updateTodo = (_id, title, priority) => {
+    console.log(_id, title)
+    return {
+        type: actionTypes.UPDATE_TODO,
+        payload: {
+            _id,
+            title,
+            priority
+        }
+    }
+}
+
 export const updateCompleted = (_id, isCompleted) => {
     return {
         type: actionTypes.UPDATE_COMPLETED,
