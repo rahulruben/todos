@@ -63,11 +63,14 @@
 .todo {
     width: 300px;
     height: auto;
+    max-width: 100%;
     z-index: 1;
+    word-break: break-all;
     background-color: #ffffff;
     margin: 1em;
     border-radius: 3px;
     cursor: pointer;
+    border-left: 2px solid #8e8e8e;
     transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
     will-change: transform;
     border-top-left-radius: 0;
@@ -125,6 +128,10 @@ input[type="checkbox"]+label {
     grid-template-columns: 15% 1fr;
 }
 
+.todo--high {
+    border-left: 2px solid #de4947;
+}
+
 .todo--high input[type="checkbox"]+label svg {
     stroke: #de4947;
     fill: #fbedec;
@@ -136,6 +143,11 @@ input[type="checkbox"]+label {
     fill: #fbedec;
 }
 
+
+.todo--medium {
+    border-left: 2px solid #f49b16;
+}
+
 .todo--medium input[type="checkbox"]+label svg {
     stroke: #f49b16;
     fill: #fdf5e7;
@@ -145,6 +157,10 @@ input[type="checkbox"]+label {
     stroke-dasharray: 320;
     stroke-dashoffset: 0;
     fill: #fdf5e7;
+}
+
+.todo--low {
+    border-left: 2px solid #3d71d5;
 }
 
 .todo--low input[type="checkbox"]+label svg {
