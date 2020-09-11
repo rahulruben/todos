@@ -74,6 +74,7 @@
   display: grid;
   grid-template-rows: 5% auto;
   grid-gap: 10px;
+  max-width: 400px;
 }
 
 .update-todo__content .MuiSvgIcon-root {
